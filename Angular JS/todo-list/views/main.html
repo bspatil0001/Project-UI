@@ -1,0 +1,32 @@
+<div>
+  <div class="jumbotron">
+    <form class="form-horizontal" role="form" ng-submit="createNew()">
+      <div class="form-group">
+        <label class="col-sm-3" for="label">Name</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" name="name" value="" placeholder="Enter your Name" ng-model="name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3" for="label">Requested Date</label>
+        <div class="col-sm-9">
+          <input type="text"  class="form-control" datepicker="" name="name" value="" ng-model="requestedDate" placeholder="Service Date" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3" for="label">Current Date</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" readonly datepicker="" name="name" value="" placeholder="Enter your Name" ng-model-options="{ updateOn: 'submit' }" ng-model="appliedDate">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-9">
+          <button type="submit" name="create" ">Create Service</button>
+          <button type="reset" name="clear">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

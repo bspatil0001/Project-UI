@@ -1,0 +1,92 @@
+<div class="">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+      <input type="text" class="form-control" placeholder="Search by typing any character" ng-model="search">
+    </div>
+  </div>
+  <div class="jumbotron">
+    <div class="panel {{ panel.class }}" ng-repeat ="panel in panels">
+      <div class="panel-heading">
+        {{ panel.type }}
+      </div>
+
+      <div class="panel-body">
+        <div ng-if =" panel.count == 0 ">
+          <h4>No records to display</h4>
+        </div>
+        <div class="" ng-if =" panel.count != 0 ">
+          <table  class="table table-hover table-bordered table-striped">
+            <thead>
+              <th ng-repeat="(key, value) in tableHeader[0]" ng-if=" value != 'operations'" >
+                <a ng-click="sortTable(value)">
+                  {{ key }}
+                  <span class="pull-right glyphicon glyphicon-arrow-down" ng-if=" ( sortField(value) == sortColumn && sortType == true )"></span>
+                  <span class="pull-right glyphicon glyphicon-arrow-up" ng-if=" ( sortField(value) == sortColumn && sortType == false )"></span>
+                </a>
+              </th>
+              <th ng-repeat="(key, value) in tableHeader[0]" ng-if=" value == 'operations'" >
+                <a>
+                  {{ key }}
+                </a>
+              </th>
+            </thead>
+
+            <tbody>
+              <tr ng-repeat="service in services | orderBy: sortColumn : sortType | filter : search" ng-repeat="service in services" ng-if=" serviceType(service.requestedDate) == panel.type ">
+                  <td ng-click="viewInfo(service.id)"> {{ service.name }} </td>
+                  <td ng-click="viewInfo(service.id)"> {{ service.requestedDate }} </td>
+                  <td ng-click="viewInfo(service.id)"> {{ service.appliedDate }} </td>
+
+                  <td>
+                    <a href="#/update/{{ service.id }}"><span class="glyphicon glyphicon-edit" ng-click="updateService(service.id)"></span></a>
+                    <a> <span class="glyphicon glyphicon-trash" ng-click="deleteService(service.id)"></span></a>
+                  </td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="view">
+      <div class="result">
+        <div class="">
+          <span class="pull-left result-header">Complete Information</span>
+          <span class="pull-right glyphicon glyphicon-remove" ng-click="closeView()"></span>
+        </div>
+        <table class="table table-responsive table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>
+                Fields
+              </th>
+              <th>
+                Value
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="(key, value) in records" ng-if="(key != 'id' && key != 'extra')">
+                <td>
+                  {{ key | uppercase }}
+                </td>
+                <td>
+                  {{ value }}
+                </td>
+            </tr>
+            <tr ng-repeat="(key1, value1) in records.extra"  ng-if="key == extra">
+              <td>
+                {{ key1 | uppercase }}
+              </td>
+              <td>
+                {{ value1 }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

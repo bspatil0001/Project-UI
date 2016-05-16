@@ -1,0 +1,41 @@
+<div class="jumbotron">
+  <div class="">
+    <form class="form-horizontal" ng-submit="updateRecord()">
+      <div class="form-group" ng-repeat="(key, value) in record" ng-if="(key != 'id' && key != 'extra')">
+        <label class="col-sm-3" for="label">{{ key }}</label>
+        <div class="col-sm-9">
+          <input type="text"  class="form-control" name="name"  ng-model="record[key]"  required>
+        </div>
+      </div>
+      <div class="form-group" ng-repeat="(key1, value1) in record.extra" ng-if="key == extra">
+        <label class="col-sm-3" for="label">{{ key1 }}</label>
+        <div class="input-group col-sm-9" id="{{ key1 }}">
+          <input type="text" class="form-control" placeholder="Enter value" ng-model="record.extra[key1]" required>
+          <div class="input-group-addon" ng-click="removeExistingField(key1)"><i class="glyphicon glyphicon-minus"></i></div>
+        </div>
+      </div>
+      <div class="added">
+        <div class="form-group" ng-repeat="field in fields">
+          <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Field name" ng-model="field.name" required>
+          </div>
+          <div class="input-group col-sm-9">
+            <input type="text" class="form-control" placeholder="Enter value" ng-model="field.value" required>
+            <div class="input-group-addon" ng-click="removeField($index)"><i class="glyphicon glyphicon-minus"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <a class="pull-right" ng-click="addFields()">+ Add fields</a>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-md-9">
+          <button type="submit" name="Update">Update Service</button>
+          <button type="reset" name="clear">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
