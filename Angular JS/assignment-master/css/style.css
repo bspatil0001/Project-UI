@@ -1,0 +1,143 @@
+.nav-wrapper {
+    height: 100px;
+}
+
+.nav li {
+    margin: 25px 0;
+    ;
+    font-family: sans-serif;
+    font-size: 25px;
+    color: #3d567e;
+}
+
+.round-letter {
+    border-radius: 50%;
+    background-color: #8295b7;
+    padding: 0 2px;
+    margin: 25px 15px !important;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.round-font-color {
+    color: #fff !important;
+}
+
+.left-panel {
+    padding-right: 4px;
+}
+
+.menubar {
+    background-color: #6089bd;
+}
+
+.menubar li {
+    list-style-type: none;
+    padding: 15px 0px;
+}
+
+.menubar * {
+    color: #fff;
+    font-size: 20px;
+}
+
+.menubar i {
+    margin: 0 10px 0 20px;
+}
+
+.remove-bottom-margin {
+    margin: 0 0 0px 0;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.menubar li.active {
+    background-color: #f0f3fc;
+}
+
+.menubar li.active a,
+.menubar li.active i {
+    color: #6089bd;
+}
+
+.menubar li a {
+    text-decoration: none;
+}
+
+.box-title {
+    background-color: #87a7ce;
+    font-size: 20px;
+    height: 58px;
+    padding: 15px;
+    color: #fff;
+}
+
+.right-box {
+    padding-left: 0;
+}
+
+.table-list {
+    margin: 10px 0;
+}
+
+table * {
+    text-align: center;
+}
+
+thead tr {
+    background-color: #e0e6f2;
+}
+
+.table>thead>tr>th {
+    border-bottom: 0;
+}
+
+.table>tbody>tr>td {
+    padding: 12px 0;
+    border-bottom: 2px solid #ddd;
+    border-top: 0;
+}
+
+.table>tbody>tr>td:last-child {
+    padding-right: 25px;
+}
+
+.table>tbody>tr>td>a {
+    font-size: 20px;
+}
+
+.sub-menu * {
+    font-size: 10px;
+    background-color: #6089bd;
+}
+
+.menubar .sub-menu li {
+    text-decoration: none;
+    padding: 15px 20px 0 55px;
+}
+
+.menubar .sub-menu li:before {
+    content: '';
+    background: #FFF;
+    display: inline-block;
+    border-radius: 50%;
+    height: 4px;
+    width: 4px;
+    margin-right: 5px;
+    position: relative;
+    top: -2px;
+}
+
+.menubar li.active .sub-menu {
+    position: relative;
+    top: 10px;
+    margin-bottom: -5px;
+    margin-top: 5px;
+}
+
+.menubar .sub-menu li a {
+    color: #fff;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "assignment-master",
+  "authors": [
+    "bspatil0001 <bs.patil0001@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "fontawesome#^4.6.3",
+    "angular": "^1.5.5",
+    "angular-ui": "^0.4.0",
+    "angular-ui-router": "^0.3.0"
+  }
+}

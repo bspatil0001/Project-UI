@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp",[]);
+      app.controller("myController",function($scope,$http){
+        $http.get("http://localhost/Private/Project-UI/Angular%20JS/Practice/data.json")
+        .success(function(response){
+          $scope.data = response.data;
+        });
+      });
+    </script>
+  </head>
+  <body ng-app="myApp">
+    <div class="" ng-controller="myController">
+      Searchbox:<input type="text" name="name" value="" ng-model="search.$"><br/><br/>
+      Searchbox By Name:<input type="text" name="name" value="" ng-model="search.name"><br/><br/>
+      Searchbox By Age:<input type="text" name="name" value="" ng-model="search.age"><br/><br/>
+      <ol >
+        <li ng-repeat="record in data  | filter:search">
+          {{record.name}}<br/>
+          {{record.age}}<br/><br/>
+        </br/>
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>

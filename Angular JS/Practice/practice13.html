@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+    var app = angular.module("myApp",[]);
+
+    app.factory("myFactory",function(){
+      {
+        var randomObject = {};
+        var num  = Math.random()*1000;
+        randomObject.generate = function(){
+          return num;
+        }
+        return randomObject;
+      }
+    });
+
+    app.controller("myController",function($scope,myFactory){
+      $scope.randomNum = Math.random()*1000;
+      $scope.submit = function(){
+        $scope.randomNum = myFactory.generate();
+      }
+
+    });
+
+    </script>
+  </head>
+  <body ng-app="myApp">
+    <div class="" ng-controller="myController">
+      <input type="button" name="name" value="Generate Random Number" ng-click="submit()">
+      <p>Genetared random number is {{ randomNum }}</p>
+    </div>
+  </body>
+</html>

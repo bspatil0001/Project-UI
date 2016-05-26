@@ -1,0 +1,28 @@
+<div class="box-title">Potential Lead</div>
+<div>
+    <table class="table table-list">
+        <thead>
+            <tr>
+                <th>Sr. No.</th>
+                <th>Customer</th>
+                <th>Bank</th>
+                <th>Loan Ammount</th>
+                <th>Project</th>
+                <th>Contact No.</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in vm.persons track by $index">
+                <td>{{$index + 1}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.bank}}</td>
+                <td>{{person.loanAmount}}</td>
+                <td>{{person.project}}</td>
+                <td>{{person.contact}}</td>
+                <td><a href="#"><i class="fa fa-ellipsis-v"></a></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

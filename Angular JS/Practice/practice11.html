@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp",[]);
+      app.controller("myController",function($scope){
+          $scope.random = Math.random()*1000;
+          document.querySelector("input").addEventListener("click",function(){
+          $scope.random = Math.random()*1000;
+          $scope.$digest();
+        },false);
+        });
+    </script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="myController">
+      <input type="button" name="name" value="Click to generate random numbe....">
+      <p>The value changed <b>{{ random | number:2}}</b> times....</p>
+    </div>
+  </body>
+</html>

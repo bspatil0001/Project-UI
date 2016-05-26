@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="angular-route/angular-route.min.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp",["ngRoute"]);
+      app.config(function($routeProvider){
+        $routeProvider
+        .when("/",{
+            redirectTo:"/login"
+        })
+        .when("/login",{
+          templateUrl : "login.html",
+          controller : "myController"
+        })
+        .when("/loggedin",{
+          resolve: {
+            "check": function($location, $rootScope){
+              if(!$rootScope.logValue){
+                $location.path("/login");
+              }
+            }
+          },
+          templateUrl: "loggedin.html"
+        })
+        .otherwise({
+          templateUrl:"login.html"
+        })
+      });
+
+      app.controller("myController", function($scope, $rootScope, $location){
+        $scope.submit = function(){
+          if($scope.userName == "admin" && $scope.password == "admin"){
+            $rootScope.logValue = "true";
+
+            $location.path("/loggedin");
+          }
+          else{
+            alert("Wrong inputs!!!!");
+          }
+        }
+      });
+    </script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-view>
+
+    </div>
+  </body>
+</html>

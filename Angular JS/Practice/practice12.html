@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp",[]);
+      app.service("randomService",function(){
+        this.getRandom = function(){
+            return Math.random()*1000;
+        }
+      });
+
+      app.controller("myController",function($scope,randomService){
+        $scope.randomNum = randomService.getRandom();
+        $scope.getRandom = function(){
+          $scope.randomNum = randomService.getRandom();
+        }
+      });
+
+    </script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="myController">
+      <input type="button" name="name" value="Click to generate random numbe...." ng-click="getRandom()">
+      <p>The value changed <b>{{ randomNum | number:2}}</b> times....</p>
+    </div>
+  </body>
+</html>

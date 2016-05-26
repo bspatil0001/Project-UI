@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+    var app = angular.module("myApp",[]);
+    app.controller("myController",function($scope){
+      $scope.counter = 0;
+      var name1,inputValue;
+      $scope.submit = function(){
+        $scope.inputValue = $scope.name1;
+        $scope.counter++;
+      }
+    });
+    </script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="myController">
+      <input type="text" name="name" value="" ng-model="name1">
+      <input type="button" name="name" value="Submit" ng-click="submit()">
+      <h1> {{ inputValue }} </h1>
+      <h2>Number clicked {{ counter }} times....</h2>
+    </div>
+  </body>
+</html>

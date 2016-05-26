@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+    var app = angular.module("myApp",[]);
+    app.controller("myController",function($scope){
+
+    });
+    </script>
+  </head>
+  <body ng-app="myApp">
+    <ul ng-init="number=['abc','xyz','pqr',1,2,3]">
+      <li ng-repeat="num in number">
+        {{ num }}
+      </li>
+
+    </ul>
+    <div ng-controller="myController">
+      <input type="text" name="name" value="" ng-model="name1">
+      {{ name1 }}
+
+    </div>
+  </body>
+</html>

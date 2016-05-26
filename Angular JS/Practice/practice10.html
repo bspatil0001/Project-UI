@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("myApp",[]);
+      app.controller("myController",function($scope){
+        $scope.count = -1;
+        $scope.$watch("name",function(newVal,oldVal){
+          $scope.count++;
+        });
+      });
+    </script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="myController">
+      <input type="text" name="name" value="" ng-model="name">
+      <p>The value changed <b>{{ count }}</b> times....</p>
+    </div>
+  </body>
+</html>
