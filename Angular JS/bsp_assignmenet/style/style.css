@@ -1,0 +1,80 @@
+.button-selection{
+  margin:40px 0;
+}
+
+.button-selection button{
+    background-color: transparent;
+    border:4px solid #10A5A9;
+    margin-top:20px;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.button-selection button:focus{
+    background-color: transparent;
+    border:4px solid #0000ff;
+}
+
+.table-content{
+    font-size: 20px;
+}
+
+input{
+  padding: 3px 10px;
+  border: none;
+  background-color: #EEEEEE;
+  border-bottom: 1px solid;
+}
+
+.screen p{
+background-color: #10A5A9;
+color:#ffffff;
+}
+
+.selected{
+  background-color: #00ff00;
+  margin:3px 7px !important;;
+}
+
+.reserved{
+    background-color: #ff0000;
+}
+
+.seats{
+  padding: 10px;
+  margin: 5px;
+}
+
+.seats:nth-child(6), .labeltext:nth-child(5){
+  margin-right: 20px;
+}
+
+.labeltext{
+  margin: 7px;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0px 6px;
+}
+
+.vertical-label{
+  margin-left:-25px;
+  width:20px; padding:0;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  vertical-align: middle;
+  padding-top: 7px;
+}
+
+.twodigit{
+  padding: 1px 2px;
+}
+
+.fifth-row{
+  margin-top: 20px;
+}
+
+*{
+  outline: none;
+}

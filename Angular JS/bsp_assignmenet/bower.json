@@ -1,0 +1,22 @@
+{
+  "name": "bsp_assignmenet",
+  "authors": [
+    "bspatil0001 <bs.patil0001@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.6",
+    "bootstrap": "^3.3.6"
+  }
+}

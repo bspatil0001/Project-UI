@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- <meta content="width=device-width,  initial-scale=1" name="viewport"> -->
+    <script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+    <!-- <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="./javascript/angular.js"></script>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="./style/style.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body ng-app="myApp">
+    <div class="container" ng-controller="myController as vm">
+      <div class="page-header text-center">
+        <h2 class="">Movie Seat Reservation</h2>
+      </div>
+      <div class="jumbotron">
+        <form class="row text-center">
+          <div class="col-md-6">
+            Name:<input type="text" name="name" value="" ng-model="vm.name" required>
+          </div>
+          <div class="col-md-6">
+            No. of Seats:<input type="number" min="1" max="120" name="name" value="" ng-model="vm.seatcount" required>
+          </div>
+          <div class="button-selection text-center">
+            <button type="submit" name="button" ng-click="selectSeat=!selectSeat">Start Selection</button>
+          </div>
+        </form>
+        <div class="screen text-center">
+          <p>Screen</p>
+        </div>
+        <div class="text-center">
+          <button class="labeltext" ng-class="{'twodigit':i>9}" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12]">{{i}}</button>
+          <div class="" ng-repeat="row in vm.seats">
+            <button class="vertical-label">{{row[0].name[0]}}</button>
+            <button ng-disabled="!selectSeat || seat.status == 'reserved'" ng-class="{'selected': seat.status == 'selected', 'reserved': seat.status == 'reserved', 'fifth-row': seat.name[0]=='E'}" class="seats" type="button" name="button" ng-repeat="seat in row" ng-click="vm.addSeat(seat)">
+            </button>
+          </div>
+        </div>
+
+        <div class="button-selection text-center">
+            <button type="button" name="button" ng-click="vm.confirmSeats(); selectSeat=!selectSeat">Confirm Selection</button>
+        </div>
+      </div>
+      <div class="jumbotron">
+        <div class="table-content  alert-info text-center" ng-if="vm.confirmed.length == 0">
+          No Bookings
+        </div>
+        <div class="table-responsive" ng-if="vm.confirmed.length">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <th ng-repeat="heading in vm.theaders">
+                {{heading}}
+              </th>
+            </thead>
+            <tbody>
+              <tr ng-repeat="row in vm.confirmed">
+                <td>
+                  {{row.name}}
+                </td>
+                <td>
+                  {{row.count}}
+                </td>
+                <td>
+                  <span ng-repeat="seat in row.seats">{{ seat }}<span ng-if="!$last">,</span> </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
