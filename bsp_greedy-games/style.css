@@ -1,0 +1,28 @@
+.img-container{
+  position: relative;
+}
+
+.img-container *{
+  display: block;
+  position: absolute;
+
+  width: 100%;
+  height: 600px;
+}
+
+.right, .left{
+  background-color: #eeeeee;
+  height: 600px;
+  padding: 10% 0;
+}
+
+.center{
+  padding:0;
+}
+
+#myTable{
+  margin: auto;
+}
+thead *, tbody *{
+  padding: 10px 20px;
+}
