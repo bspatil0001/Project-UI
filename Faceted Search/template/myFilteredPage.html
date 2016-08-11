@@ -1,0 +1,15 @@
+<div class="wrapper-facets">
+    <span>Filters:</span>
+    <button type="button" name="button" ng-if="activeFacets.length">Clear All <a href="" ng-click="clearAllFacets()">X</a></button>
+    <button type="button" name="button" ng-repeat="facet in activeFacets" ng-click="clearFacet(facet)">{{ facet | uppercase }}<a href="">X</a></button>
+    <span></span>
+</div>
+<div class="filteredItems">
+    <ul>
+        <li ng-repeat="item in filteredItems | filter:query">
+            <p><b>{{item.name}}</b></p>
+            <p>Type: {{item.type}}
+                <br/> Country: {{item.country}}</p>
+        </li>
+    </ul>
+</div>

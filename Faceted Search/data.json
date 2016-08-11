@@ -1,0 +1,48 @@
+[{
+        "id": "1",
+        "name": "Air India",
+        "type": "Business Class",
+        "country": "India"
+    }, {
+        "id": "2",
+        "name": "Air India",
+        "type": "Economic Class",
+        "country": "India"
+    }, {
+        "id": "3",
+        "name": "Air Asia",
+        "type": "Business Class",
+        "country": "Japan"
+    }, {
+        "id": "4",
+        "name": "Etihad",
+        "type": "Business Class",
+        "country": "United Kingdom"
+    }, {
+        "id": "5",
+        "name": "Malaysia Airlines",
+        "type": "Business Class",
+        "country": "Malaysia"
+    }, {
+        "id": "6",
+        "name": "kingfisher",
+        "type": "Business Class",
+        "country": "India"
+    }, {
+        "id": "7",
+        "name": "Deccan Airlines",
+        "type": "Business Class",
+        "country": "India"
+    }, {
+        "id": "8",
+        "name": "Malaysia Airlines",
+        "type": "Economic Class",
+        "country": "Malaysia"
+    }, {
+        "id": "9",
+        "name": "Etihad",
+        "type": "Economic Class",
+        "country": "United Kingdom"
+    }
+
+]

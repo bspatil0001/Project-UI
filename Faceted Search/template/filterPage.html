@@ -1,0 +1,15 @@
+<div class="searchBox">
+    Search:
+    <input name="searchQuery" type="text" class="search-input" ng-model="query" />
+</div>
+<div class="class_container" ng-repeat="facet in facetGroups">
+    <div class="class_head">
+        {{ facet.name | uppercase }}
+    </div>
+    <div class="class_value" ng-repeat="face in facet.facets">
+        <label>
+            <input type="checkbox" ng-model="useFacets[facet.name][face]" />
+        </label>
+        <span>{{ face }}</span>
+    </div>
+</div>
