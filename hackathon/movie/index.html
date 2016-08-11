@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <title>Movie Database</title>
+
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <link rel="stylesheet" href="css/angular-material.min.css"/>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="css/app.css"/>
+
+    <script src="scripts/library/angular.min.js"></script>
+    <script src="scripts/library/angular-aria.min.js"></script>
+    <script src="scripts/library/angular-animate.min.js"></script>
+    <script src="scripts/library/angular-material.min.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/filters/filters.js"></script>
+    <script src="scripts/services/GenreService.js"></script>
+    <script src="scripts/controllers/MovieController.js"></script>
+    <script src="scripts/providers/themingProvider.js"></script>
+    <script src="scripts/directives/circularLoader.js"></script>
+
+  </head>
+
+  <body layout="row" ng-controller="MovieController as vm" ng-cloak>
+    <circular-loader ng-show="$root.ajaxLoader"></circular-loader>
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2"
+        md-component-id="left"
+        ng-click="vm.toggleSideNav()" aria-label="Show Genre List"
+        md-is-locked-open="$mdMedia('gt-sm')">
+
+      <md-toolbar class="md-whiteframe-z1">
+        <h3>Genres</h3>
+      </md-toolbar>
+
+      <md-list>
+        <md-list-item ng-repeat="it in vm.genres">
+            <md-button ng-click="vm.selectGenre(it)" ng-class="{'selected' : it === vm.selected }">
+              {{it}}
+            </md-button>
+        </md-list-item>
+      </md-list>
+
+    </md-sidenav>
+
+
+    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+      <md-toolbar layout="row" class="md-whiteframe-z1">
+        <md-button id="main" class="menu" hide-gt-sm ng-click="vm.toggleSideNav()" aria-label="Show Genre List">
+          <md-icon md-svg-icon="menu" ></md-icon>
+        </md-button>
+        <h3>Movie Database</h3>
+      </md-toolbar>
+
+      <md-content flex id="content">
+          <form name="vm.searchForm" method="get" novalidate>
+            <div layout="row">
+              <md-input-container flex="95" class="md-block">
+                <label>Movie Name</label>
+                <input required type="text" name="title" ng-model="vm.title"/>
+                <div class="error"  ng-messages="vm.searchForm.title.$error">
+                  <div ng-message="required">
+                    Mandatory field
+                  </div>
+                </div>
+              </md-input-container>
+
+              <md-icon md-menu-origin md-svg-icon="search" ng-click="vm.getMovie()"></md-icon>
+            </div>
+          </form>
+          <h2>{{vm.caption}}</h2>
+
+          <div flex layout="row" layout-wrap>
+            <md-card flex-xs="100" flex-gt-sm="30" flex-gt-xs="45" ng-repeat="movie in vm.movies track by $index" ng-if="movie" ng-click="vm.editMovie(movie, $index)">
+              <md-card-header>
+                <md-card-header-text>
+                  <span class="md-title">{{movie.Title}}</span>
+                </md-card-header-text>
+              </md-card-header>
+              <img ng-src="{{movie.Poster}}" class="md-card-image" alt="No Poster">
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline" ng-init="stars = vm.getRating(movie.imdbRating)">
+                    <md-icon md-menu-origin md-svg-icon="{{star}}" ng-repeat="star in stars track by $index"></md-icon>
+                  </span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-content>
+                <p>
+                  <div>Year: {{movie.Year}}</div>
+                  <div>Genre: {{movie.Genre}}</div>
+                  <div>Director: {{movie.Director}}</div>
+                  <div>Actors: {{movie.Actors | limitLength}}</div>
+                  <div>Plot: {{movie.Plot | limitLength}}</div>
+                </p>
+              </md-card-content>
+            </md-card>
+
+            <p ng-if="vm.noOfMovies === 0">
+              No movies
+            </p>
+
+          </div>
+      </md-content>
+
+    </div>
+
+  </body>
+</html>

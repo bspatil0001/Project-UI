@@ -1,0 +1,79 @@
+<md-dialog aria-label="edit movie"  ng-cloak>
+
+
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{sd.movie.Title}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="sd.cancel()">
+          <md-icon md-svg-src="close" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <form name="sd.editMovieForm" method="post" novalidate>
+
+      <md-dialog-content>
+        <div class="md-dialog-content">
+
+          <img ng-src="{{sd.movie.Poster}}" class="md-card-image" alt="Washed Out">
+
+          <p>
+            <md-icon md-menu-origin md-svg-icon="{{star}}" ng-repeat="star in sd.rating track by $index"></md-icon>
+          </p>
+
+          <md-input-container class="md-block">
+            <label>Year</label>
+            <input required name="year" ng-model="sd.movie.Year"/>
+            <div class="error" ng-messages="sd.editMovieForm.year.$error">
+               <div ng-message="required">Mandatory Field</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Genre</label>
+            <input required name="genre" ng-model="sd.movie.Genre"/>
+            <div class="error" ng-messages="sd.editMovieForm.genre.$error">
+               <div ng-message="required">Mandatory Field</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Director</label>
+            <input required name="director" ng-model="sd.movie.Director"/>
+            <div class="error" ng-messages="sd.editMovieForm.director.$error">
+               <div ng-message="required">Mandatory Field</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Actors</label>
+            <textarea required name="actors" ng-model="sd.movie.Actors" rows="3" md-select-on-focus></textarea>
+            <div class="error" ng-messages="sd.editMovieForm.Actors.$error">
+               <div ng-message="required">Mandatory Field</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Plot</label>
+            <textarea required name="plot" ng-model="sd.movie.Plot" rows="3" md-select-on-focus></textarea>
+            <div class="error" ng-messages="sd.editMovieForm.plot.$error">
+               <div ng-message="required">Mandatory Field</div>
+            </div>
+          </md-input-container>
+
+        </div>
+      </md-dialog-content>
+
+      <md-dialog-actions layout="row">
+        <md-button ng-click="sd.reset()">
+          Reset
+        </md-button>
+        <md-button ng-click="sd.editMovie(sd.movie)">
+          Save
+        </md-button>
+      </md-dialog-actions>
+    </form>
+
+
+</md-dialog>

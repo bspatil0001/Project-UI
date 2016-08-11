@@ -1,0 +1,60 @@
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.othersmsg{
+  text-align: right;
+  background-color: #F7F7F7;
+}
+
+md-card-header{
+  background-color: rgb(63,81,181);
+}
+
+md-list.typing{
+  padding: 0;
+}
+
+md-list.typing md-list-item{
+  min-height: 30px;
+}
+
+md-list-item.md-3-line{
+  min-height: 58px;
+}
+
+md-input-container .no-error{
+  color: #fff;
+}
+
+.no-error ~ .md-errors-spacer{
+  min-height: 0;
+}
+
+.message-container{
+  height: 312px;
+}
+
+md-icon {
+  cursor: pointer;
+}
+
+md-toolbar h3 {
+  margin: auto;
+  font-weight: 500;
+}
+
+md-toolbar {
+  min-height:64px;
+}
+
+#content  {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+}
+
+md-card {
+  margin: 20px;
+}

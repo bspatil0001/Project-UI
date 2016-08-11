@@ -1,0 +1,71 @@
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+md-icon[md-svg-icon="search"], md-card{
+  cursor: pointer;
+}
+
+.ng-invalid ~ .error {
+  display: block;
+}
+
+.ng-valid ~ .error {
+  display: none;
+}
+
+md-toolbar h3 {
+  margin: auto;
+  font-weight: 500;
+}
+
+md-list-item > button {
+  width:100%;
+  text-align:left !important;
+}
+
+md-list .md-button.selected {
+  color: #03a9f4;
+}
+
+button#main {
+  margin-bottom: 10px;
+}
+
+md-toolbar {
+  min-height:64px;
+}
+
+md-list-item {
+  overflow: hidden;
+}
+
+#content  {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+}
+
+md-card {
+  margin: 12px;
+}
+
+md-backdrop, circular-loader, .cir-loader:after {
+  position: fixed;
+}
+
+circular-loader {
+  z-index: 9999;
+}
+
+.cir-loader:after {
+  content: "";
+  z-index: 10;
+  opacity: .39;
+  background: black;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

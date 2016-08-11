@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <title>Tick and Load</title>
+
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <link rel="stylesheet" href="css/app.css"/>
+
+    <script src="scripts/library/angular.min.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/TimerController.js"></script>
+
+  </head>
+
+  <body layout="row" ng-controller="myController as vm" ng-cloak>
+    <div class="container">
+      <div class="jumbotron">
+        <div class="header">
+          <h1></h1>
+        </div>
+      </div>
+
+    </div>
+    <div class="wrapper">
+      <h1 class="text-center">Tick and Load</h1>
+      <section id="content">
+        <div class="timer text-center">
+          <h2>Countdown</h2>
+          <form method="post" name="vm.timer" novalidate>
+            <div class="form-control">
+              <input type="text" placeholder="HH:MM:SS" name="time" ng-model="vm.time" required pattern="[0-2][0-3][:][0-5][0-9][:][0-5][0-9]"/>
+            </div>
+            <p class="error" ng-show="vm.timer.time.$invalid && vm.timer.time.$dirty">Enter time in HH:MM:SS format</p>
+            <div class="form-control">
+              <input ng-disabled="vm.timer.time.$invalid" type="submit" name="name" value="Start" ng-click="vm.startTimer()" title="Enter time">
+            </div>
+          </form>
+        </div>
+        <div class="progress-bar-container text-center">
+          <h2>Progress</h2>
+          <div class="progress">
+            <div class="progress-bar" style="width:{{vm.width}}">
+              {{vm.width}}
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
